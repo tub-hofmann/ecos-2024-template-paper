@@ -1,0 +1,109 @@
+\documentclass[oneside, paper=A4, 11pt, abstract=false, parskip=no]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[babel]{csquotes}
+
+% Font
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+
+% Heads
+\usepackage{scrlayer-scrpage}
+\renewcommand{\titlepagestyle}{scrheadings}
+
+% Margins
+\usepackage[a4paper]{geometry}
+\geometry{hmargin=2.54cm,vmargin={2.54cm,3.24cm}}
+
+% Commas for authors
+\usepackage{authblk}
+\renewcommand\Authand{, }
+\renewcommand\Authands{, }
+
+% Math, Symbols, Units, Chemistry
+\usepackage{amsmath,amsxtra}
+\usepackage{eurosym}
+\usepackage{siunitx}  
+\sisetup{locale=US}
+ \DeclareSIUnit\bar{bar}
+\usepackage[version=4]{mhchem}
+
+% Typography
+\usepackage[auto]{microtype}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+% Figures, Tables, Listings
+\usepackage{graphicx}
+\usepackage{multirow,multicol,booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% URLs
+\usepackage{url}
+\urlstyle{same}
+
+% Footnotes
+%\usepackage{footnote}
+
+% Bibliography style
+\usepackage[
+backend=biber,
+style=authoryear,
+citestyle=authoryear,
+giveninits=true,
+maxcitenames=2,
+natbib
+]{biblatex}
+
+\AtBeginBibliography{\small}
+
+% bib files
+\addbibresource{literature/refs.bib}
+
+%Fussnoten
+%Markierung in der Fußnote selbst weder hochgestellt noch kleiner gesetzt
+%\deffootnote{1em}{1em}{\thefootnotemark\ }
+%linksbündige Fußnotenmarkierungen
+\deffootnote{1.5em}{1em}{%
+	\makebox[1.5em][l]{\thefootnotemark}%
+}
+
+% Fussnoten nicht umbrechen
+\interfootnotelinepenalty=10000
+
+% Fonts, title, sections, and captions
+\newcommand{\ca}[1]{\date{ #1}}
+\addtokomafont{title}{\normalfont\bfseries\let\huge\large}
+\setkomafont{author}{\normalfont\normalsize}
+\renewcommand\Affilfont{\footnotesize}
+\setkomafont{date}{\normalfont}
+\setkomafont{pageheadfoot}{\fontsize{12}{12}\selectfont\bfseries}
+\setkomafont{pagefoot}{\normalfont\small}
+\setkomafont{pagenumber}{}
+\addtokomafont{caption}{\normalsize}
+\setkomafont{captionlabel}{\bfseries}
+\setkomafont{section}{\normalfont\bfseries\large\centering}
+\setkomafont{subsection}{\normalfont\normalsize\bfseries}
+\setkomafont{subsubsection}{\normalfont\normalsize}
+
+\RedeclareSectionCommand[
+  afterindent=false,
+  beforeskip=.75\baselineskip,
+  afterskip=.001\baselineskip]{subsection}
+\RedeclareSectionCommand[
+  runin=true,
+  beforeskip=.5\baselineskip,
+  afterskip=.25\baselineskip]{subsubsection}
+
+% Hyperref, cleverref and pdf information 
+\usepackage[
+pdftitle={ECOS 2024 - Template - PAPER},
+pdfsubject={},
+pdfauthor={ECOS, Mathias Hofmann},
+pdfkeywords={},  
+%Links nicht einrahmen
+hidelinks
+]{hyperref}
+\usepackage[english,capitalise]{cleveref}
